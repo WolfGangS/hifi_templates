@@ -79,6 +79,8 @@
     button.editProperties({ isActive: state });
   }
   
+  
+  
   //////////////////////////////
   /////////// Button ///////////
   //////////////////////////////
@@ -99,13 +101,25 @@
   //We are going to tie out button to the toggle function we wrote above, so that clicking it will hide or show our overlay
   button.clicked.connect(toggleWebOverlay);
   
-  //Lets send somthing to our overlay to show that the connection works,
+  
+  
+  //////////////////////////////
+  //////// Do Something ////////
+  //////////////////////////////
+  
+  //Lets send something to our overlay to show that the connection works,
   //and as an example of how you can use the connection
   //Script.setInterval works like window.setInterval in a browser, it starts a timer that will call the function inside every so many miliseconds
   Script.setInterval(function(){
     //send a script event with the function we made earlier, setting a type so that we can tell in the overlay what to do with it
     sendScriptEvent("avatar-position",MyAvatar.position);
   },2000);//2000 will result in a call every 2 seconds
+  
+  
+  
+  //////////////////////////////
+  ////////// Cleanup ///////////
+  //////////////////////////////
   
   //Connect to the scriptEnding event to cleanup our objects
   Script.scriptEnding.connect(scriptEnding);
